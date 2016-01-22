@@ -1,0 +1,25 @@
+<!doctype html>
+<html ng-app="MeuModulo">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  </head>
+  <body>
+
+    <div ng-controller="CtrlModulo">
+      Meu nome é {{nome}}
+    </div>
+
+  <script>
+
+    var meuModulo = angular.module('MeuModulo', []); 
+    <!-- segundo argumento: lista de dependencias -->
+
+    var ctrlModulo = meuModulo.controller('CtrlModulo', function($scope) {
+      $scope.nome = "Wesley";
+    });
+
+  </script>
+
+  </body>
+</html>

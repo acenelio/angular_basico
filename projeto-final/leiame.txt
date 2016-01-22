@@ -1,0 +1,31 @@
+-------------------------------------------------------------------
+PASSOS PARA RODAR A APLICAÇÃO:
+
+1) Para instalar essa aplicação, rode o composer na linha de comando:
+> composer install
+
+2) Confira o usuário e senha do seu banco de dados no arquivo index.php
+
+3) Crie a base de dados:
+
+CREATE DATABASE angular;
+USE angular;
+
+CREATE TABLE `pessoas` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(45) DEFAULT NULL,
+  `email` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+
+INSERT INTO pessoas(nome,email) values ('Ana', 'ana@gmail.com');
+INSERT INTO pessoas(nome,email) values ('Joaquim', 'joaquim@gmail.com');
+INSERT INTO pessoas(nome,email) values ('Teresa', 'teresa@gmail.com');
+INSERT INTO pessoas(nome,email) values ('Carlos', 'carlos@gmail.com');
+
+4) Suba o sistema na linha de comando:
+> php -S localhost:9999
+
+5) No navegador acesse:
+localhost:9999
+

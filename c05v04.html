@@ -1,0 +1,42 @@
+<!doctype html>
+<html ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  </head>
+  <body>
+
+  <div ng-controller="CtrlApp">
+
+    <button son-click="executa()">Clique aqui</button>
+
+  </div>
+
+  <script>
+    var myApp = angular.module('app', []);
+
+    myApp.directive('sonClick', function() {
+
+      return {
+        restrict: 'A',
+
+        <!-- link serve para attachar o comportamento ao elemento -->
+        link: function(scope, element, attrs) {
+          element.bind('click', function() {
+            <!-- eval eh uma forma de executar. Ele pega o codigo indicado e executa -->
+            scope.$eval(attrs.sonClick);
+          })
+        }
+      };
+    });
+
+    myApp.controller('CtrlApp', function($scope) {
+      $scope.executa = function() {
+        alert('Diretiva clicada');
+      }        
+    });
+
+  </script>
+
+  </body>
+</html>

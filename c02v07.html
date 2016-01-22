@@ -1,0 +1,41 @@
+<!doctype html>
+<html ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  </head>
+  <body>
+
+  Busca: <input type="search" ng-model="busca" />
+
+  <div ng-controller="CtrlLista">
+    Pessoas:
+    <select ng-model="selected" ng-options="pessoa.id as pessoa.nome for pessoa in pessoas | filter:busca track by pessoa.nome" >
+      <option value="">Selecione</option>
+    </select>
+
+    <div>
+      Nome: <input type="text" ng-model="selected.nome" />
+      <br/>
+      Cidade: <input type="text" ng-model="selected.cidade" />
+    </div>
+  </div>
+
+  <script>
+    var myApp = angular.module('app', []);
+
+    var CtrlLista = function($scope) {
+
+      $scope.pessoas = [
+        {id: 1, nome: "Maria", cidade: "São Paulo"},
+        {id: 2, nome: "João", cidade: "Salvador"},
+        {id: 3, nome: "Tico", cidade: "Curitiba"},
+        {id: 4, nome: "Marta", cidade: "Pirapora"}
+      ];
+    };
+
+    myApp.controller('CtrlLista', CtrlLista);
+  </script>
+
+  </body>
+</html>

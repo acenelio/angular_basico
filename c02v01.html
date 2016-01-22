@@ -1,0 +1,36 @@
+<!doctype html>
+<html ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  </head>
+  <body>
+
+    <input type="text" ng-model="valor"/>
+    <br/>
+
+    <input type="checkbox" ng-model="checado" /> Show
+
+    <div ng-show="checado">
+      Olá!
+    </div>
+
+    <br/>
+
+    <input type="checkbox" ng-model="escondido" /> Esconder
+
+    <div ng-hide="escondido">
+      Oie: {{valor}}
+    </div>
+
+    <script>
+      var myApp = angular.module('app', []);
+
+      var CtrlApp = function($scope) {
+      } 
+
+      myApp.controller('CtrlApp', CtrlApp);
+    </script>
+
+  </body>
+</html>
